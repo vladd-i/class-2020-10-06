@@ -1,0 +1,58 @@
+---
+title: "Week 5, Day 1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+
+### Scene 1
+
+**Prompt:** Create a graphic of the posterior distribution of the [538 forecast](https://projects.fivethirtyeight.com/2020-election-forecast/) for Biden's electoral vote total. Recall the example given in Chapter 3 of *The Primer*.
+
+
+
+### Scene 2
+
+**Prompt:** The purpose of this question and the next is to make sure you understand the Rubin Causal Model. Use a Google sheet, or a spreadsheet of your choice, to create the necessary tables. Most will just require a couple of lines. Wisconsin has 10 electoral votes.
+
+a) Create an ideal Preceptor Table which examines the causal effect of a proposed advertising campaign on Biden's electoral votes from Wisconsin. 
+
+b) Assume that Biden implements the campaign, create the actual Preceptor Table which we will see after the election.
+
+c) What does the actual Preceptor Table look like now?
+
+
+
+
+### Scene 3
+
+**Prompt:** Probability distributions are confusing. Using 538's posterior probability distribution of Biden's electoral votes, answer the following question. (Recall that there are 538 total electoral votes. For this exercise, you may assume that every EV goes to either Biden or Trump. In other words, we are, by assumption, eliminating the possibility of a third party candidate winning any votes.)
+
+
+a) What is the probability that Biden wins more than 300 electoral votes?
+
+b) What is the probability that Biden wins exactly 531 electoral votes? Is this answer consistent with your answer in a)?
+
+c) What is the probability of a "very close" election, defined as Biden winning between 269 and 289 electoral votes, inclusive?
+
+d) How many unique electoral vote totals does 538 view as impossible for Biden to achieve? Some of these are truly impossible. Given an example of one of these. Why does 538 think that some vote totals, while theoretically possible, should be given zero probability in its posterior?
+
+
+
+
+### Scene 4
+
+**Prompt:** Biden is considering a larger implementation of this advertising campaign. However, he can't afford to use it in every state. Create an ideal Preceptor Table illustrating the situation from a causal inference perspective. Use ... to indicate rows which exist but which you are not writing down explicitly, as we do in the book. (After all, you can write down every row.)
+
+a) On a Google sheet or other spreadsheet, create an ideal Preceptor Table which illustrates the causal effect of the campaign.
+
+b) Does it make sense to calculate an average causal effect?
+
+c) There are two approaches Biden might take to determine which states to use the campaign in. He could randomize. He could select states which, in his judgment, do the most to increase his odds of winning the presidency. Which should he do?
+
+d) Assume he randomized. What conclusions might we be able to draw after the election? How would we draw them.
+
