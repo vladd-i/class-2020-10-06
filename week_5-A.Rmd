@@ -13,6 +13,14 @@ library(tidyverse)
 
 **Prompt:** Create a graphic of the posterior distribution of the [538 forecast](https://projects.fivethirtyeight.com/2020-election-forecast/) for Biden's electoral vote total. Recall the example given in Chapter 5 of *The Primer*.
 
+```{r}
+data <- read_csv("data_538/election-forecasts-2020/presidential_ev_probabilities_2020.csv")
+
+View(data)
+
+ggplot(data, aes(total_ev, evprob_chal)) +
+  geom_col()
+```
 
 
 ### Scene 2
@@ -35,12 +43,37 @@ c) What does the actual Preceptor Table look like now?
 
 a) What is the probability that Biden wins more than 300 electoral votes?
 
+```{r}
+data %>%
+  filter(total_ev > 300) %>%
+  summarize(sum(evprob_chal))
+```
+
+
 b) What is the probability that Biden wins exactly 531 electoral votes? Is this answer consistent with your answer in a)?
+
+```{r}
+data %>%
+  filter(total_ev == 531) %>%
+  select(evprob_chal)
+```
 
 c) What is the probability of a "very close" election, defined as Biden winning between 269 and 289 electoral votes, inclusive?
 
+
+```{r}
+data %>%
+  filter(total_ev > 269 & total_ev < 289) %>%
+  summarize(total_prob = sum(evprob_chal))
+```
+
 d) How many unique electoral vote totals does 538 view as impossible for Biden to achieve? Some of these are truly impossible. Given an example of one of these. Why does 538 think that some vote totals, while theoretically possible, should be given zero probability in its posterior?
 
+```{r}
+data %>%
+  filter(evprob_chal == 0) %>%
+  nrow
+```
 
 
 
@@ -52,7 +85,9 @@ a) On a Google sheet or other spreadsheet, create an ideal Preceptor Table which
 
 b) Does it make sense to calculate an average causal effect?
 
+No.
+
 c) There are two approaches Biden might take to determine which states to use the campaign in. He could randomize. He could select states which, in his judgment, do the most to increase his odds of winning the presidency. Which should he do?
 
-d) Assume he randomized. What conclusions might we be able to draw after the election? How would we draw them.
+d) Assume he randomized. What conclusions might we be able to draw after the election? How would we draw them?
 
